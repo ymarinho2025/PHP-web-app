@@ -1,0 +1,44 @@
+form {
+    background-color: rgba(128, 128, 128, 0.178);
+    border: none;
+    width: 350px;
+    padding: 1em;
+    margin: 0px auto;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px grey;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+input,
+label {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+label {
+    margin-bottom: .25em;
+}
+
+input {
+    padding: 0.75em;
+    border: 5px;
+    margin-bottom: 1.5em;
+    border: 1px solid #bbb;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+legend {
+    padding: 1em;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}

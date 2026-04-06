@@ -1,6 +1,0 @@
-<?php
-
-function sendFile($filePath) {
-
-}
-?>

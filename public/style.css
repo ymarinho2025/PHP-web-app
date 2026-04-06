@@ -1,0 +1,93 @@
+body {
+    background-color: #fafafa;
+}
+
+h2, p {
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin: 10px auto;
+}
+/* MENU */
+.menu {
+    background-color: #031e50;
+    text-align: center;
+    width: 100%;
+}
+
+.menu li {
+    font-family: arial;
+    font-size: 20px;
+    list-style: none;
+    display: inline-block;
+    padding: 5px;
+}
+
+.menu a {
+    background-color: #031e50;
+    color: #cf9905;
+    padding: 15px;
+    display: block;
+}
+
+.menu a:hover {
+    border-radius: 5px;
+    background-color: #003057;
+}
+
+.btn-menu {
+    display: none;
+    background-color: #003057;
+    color: #cf9905;
+    padding: 15px 20px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+ul {
+    padding-left: 0;
+}
+
+li {
+    list-style-position: inside;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Esconder menu e mostrar botão abaixo de 760px */
+@media (max-width: 760px) {
+
+    .menu {
+        display: none;
+    }
+
+    .btn-menu {
+        display: block
+    }
+
+    /* ativar menu pelo JS */
+    .menu.menu-ativo {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .menu li {
+    display: flex;
+}
+
+.menu a {
+    background-color: #031e50;
+    color: #cf9905;
+    padding: 15px;
+    width: 100%;
+    display: block;
+}
+
+}

@@ -13,7 +13,7 @@ try {
         throw new Exception("Token não encontrado");
     }
     $decoded = JWT::decode($auth_token, new Key($key, 'HS256'));
-    echo "Usuário Email: " . $decoded->user_email;
+    echo "Usuário atual: " . $decoded->user_email;
     
 } catch (Exception $e) {
     echo "<script>window.location.href = '/login.php';</script>";
