@@ -9,10 +9,23 @@ if (isset($_POST['email']) && isset($_POST['name']) && isset($_POST['password'])
     $email = $_POST['email'];
     $nome = $_POST['name'];
     $senha = $_POST['password'];
+
+    if (strlen($senha) < 8) {
+    echo "A senha deve conter no mínimo 8 caracteres.";
+    exit;
+}
+
+    $emailRegex = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/"; // Matches the whole word "web", case-insensitive
+    $invalidCharsRegex = "/[()\/\\<>]/";
+
+    if (!preg_match($emailRegex, $email)) {
+    echo "Email Invalido";
+}
+    if (preg_match($invalidCharsRegex, $name)) {
+    echo "O nome contém caracteres inválidos: ( ) / \\ < >";
+}
     $hash = hash('sha256', $senha);
-
-// Consulta para verificar existência
-
+    
     $stmt = $mysqli->prepare("SELECT email FROM users WHERE email = ?");
     $stmt->bind_param("s", $email); // 's' enforces string type
     $stmt->execute();

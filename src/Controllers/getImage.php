@@ -16,18 +16,7 @@ $userId = null;
 if (isset($_COOKIE['auth_token'])) {
     try {
         $decoded = JWT::decode($_COOKIE['auth_token'], new Key($key, 'HS256'));
-        $email = $decoded->user_email;
-
-        $stmtUser = $mysqli->prepare("SELECT id FROM users WHERE email = ?");
-        $stmtUser->bind_param("s", $email);
-        $stmtUser->execute();
-        $resultUser = $stmtUser->get_result();
-
-        if ($rowUser = $resultUser->fetch_assoc()) {
-            $userId = (int) $rowUser['id'];
-        }
-
-        $stmtUser->close();
+        $userId = $decoded->id;
     } catch (Exception $e) {
         die("Usuário não autenticado.");
     }

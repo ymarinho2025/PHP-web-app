@@ -20,7 +20,8 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         $payload = [
             "iat" => time(),
             "exp" => time() + 3600,
-            "user_email" => $email
+            "id" => $result->fetch_assoc()['id']
+            
         ];
 
         $jwt = JWT::encode($payload, $key, 'HS256');

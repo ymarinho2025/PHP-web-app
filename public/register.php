@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="form.css">
     <script src="script.js" defer></script>
+    <script src="leter.js" defer></script>
     <?php require_once '../src/Controllers/storeRegister.php'; ?>
 </head>
 <body>
@@ -19,15 +20,25 @@
         <li><a href="/fotos.php">FOTOS</a></li>
     </ul>
 
-<form action="register.php" method="POST">
+<form id="registerForm"action="register.php" method="POST">
     <fieldset>
         <legend>Registre sua conta</legend>
-        <input type="text" name="name" placeholder="Name" required autofocus>
-        <input type="text" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Password" required>
+        <input type="text" id="name" name="name" placeholder="Name" required autofocus>
+        <input type="text" id="email" name="email" placeholder="Email" required>
+        <input type="password" id="password" name="password" placeholder="Password" required>
         <input type="submit" value="Register">
     </fieldset>
 </form>
+
+<script>
+    document.querySelector("form").addEventListener("submit", function(event) {
+    // Impede o envio do formulário
+    event.preventDefault(); 
+
+    // Suas validações ou lógica Ajax aqui
+    console.log("Formulário não enviado.");
+});
+</script>
 
 </body>
 </html>
