@@ -1,6 +1,6 @@
 <?php
 
-require_once 'key.php';
+require_once '../src/Controllers/login/key.php';
 require_once '../vendor/autoload.php';
  
 use Firebase\JWT\JWT;

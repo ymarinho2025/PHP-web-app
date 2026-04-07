@@ -1,7 +1,7 @@
 <?php
 
-require_once 'db.php';
-require_once 'key.php';
+require_once '../src/Controllers/db.php';
+require_once '../src/Controllers/login/key.php';
 require_once '../vendor/autoload.php';
 
 use Firebase\JWT\JWT;
@@ -22,7 +22,7 @@ try {
     $stmtUser->execute();
     $result = $stmtUser->get_result();
 
-    echo "Usuário atual: " . htmlspecialchars($result->fetch_assoc()['name'], ENT_QUOTES, 'UTF-8');
+    // echo "Usuário atual: " . htmlspecialchars($result->fetch_assoc()['name'], ENT_QUOTES, 'UTF-8');
     
 } catch (Exception $e) {
     echo "<script>window.location.href = '/login.php';</script>";

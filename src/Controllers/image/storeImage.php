@@ -1,7 +1,7 @@
 <?php
-require_once 'db.php';
-require_once 'key.php';
-require_once 'base64.php';
+require_once '../src/Controllers/db.php';
+require_once '../src/Controllers/login/key.php';
+require_once '../src/Controllers/image/base64.php';
 require_once '../vendor/autoload.php';
 
 use Firebase\JWT\JWT;
