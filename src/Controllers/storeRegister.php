@@ -21,7 +21,7 @@ if (isset($_POST['email']) && isset($_POST['name']) && isset($_POST['password'])
     if (!preg_match($emailRegex, $email)) {
     echo "Email Invalido";
 }
-    if (preg_match($invalidCharsRegex, $name)) {
+    if (preg_match($invalidCharsRegex, $nome)) {
     echo "O nome contém caracteres inválidos: ( ) / \\ < >";
 }
     $hash = hash('sha256', $senha);
