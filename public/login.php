@@ -21,7 +21,7 @@ use Firebase\JWT\Key;
 
     <button class="btn-menu" id="btn-menu">☰ Menu</button>
     <ul class="menu" id="menu">
-        <li><a href="/">INICIO</a></li>
+        <li><a href="/home.php">INICIO</a></li>
         <li><a href="/register.php">REGISTRO</a></li>
         <li><a href="/login.php">LOGIN</a></li>
         <li><a href="/fotos.php">FOTOS</a></li>

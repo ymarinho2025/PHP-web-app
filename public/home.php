@@ -1,5 +1,6 @@
 <?php
-require_once '../src/Controllers/login/storeRegister.php';
+require_once '../vendor/autoload.php';
+require_once '../src/Controllers/login/auth.php';
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
@@ -7,14 +8,13 @@ use Firebase\JWT\Key;
 
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/form.css">
     <script src="js/script.js" defer></script>
-    <script src="js/leter.js" defer></script>
 </head>
 <body>
 
@@ -38,25 +38,8 @@ use Firebase\JWT\Key;
         ?>
     </ul>
 
-<form id="registerForm"action="register.php" method="POST">
-    <fieldset>
-        <legend>Registre sua conta</legend>
-        <input type="text" id="name" name="name" placeholder="Name" required autofocus>
-        <input type="text" id="email" name="email" placeholder="Email" required>
-        <input type="password" id="password" name="password" placeholder="Password" required>
-        <input type="submit" value="Register">
-    </fieldset>
-</form>
-
-<script>
-    document.querySelector("form").addEventListener("submit", function(event) {
-    // Impede o envio do formulário
-    event.preventDefault(); 
-
-    // Suas validações ou lógica Ajax aqui
-    console.log("Formulário não enviado.");
-});
-</script>
-
+    <form action="login.php" method="GET">
+        <button type="submit" name="deslogar" value="1">Deslogar</button>
+    </form>
 </body>
 </html>

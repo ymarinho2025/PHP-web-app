@@ -20,7 +20,7 @@ require_once '../src/Controllers/admin/edit.php';
         <aside class="sidebar">
             <h2>Painel ADM</h2>
             <a href="#" class="active">Usuários</a>
-            <a href="/">Menu inicial</a>
+            <a href="/home.php">Menu inicial</a>
 
             <form action="login.php" method="GET">
         <button type="submit" name="deslogar" value="1">Deslogar</button>
@@ -30,7 +30,7 @@ require_once '../src/Controllers/admin/edit.php';
         <main class="main">
             <div class="header">
                 <h1>Painel Administrativo</h1>
-                <div class="user">👤 Administrador</div>
+                <div class="user">Administrador</div>
             </div>
 
             <?php if (isset($_GET['msg'])): ?>

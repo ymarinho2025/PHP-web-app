@@ -77,7 +77,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
             'samesite' => 'Lax'
         ]);
 
-        header("Location: /");
+        header("Location: /home.php");
         exit;
     } else {
         echo "Email ou senha incorretos.";

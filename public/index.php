@@ -1,45 +1,31 @@
-<?php
-require_once '../vendor/autoload.php';
-require_once '../src/Controllers/login/auth.php';
-
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-    
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js" defer></script>
+    <title>Login - E-Grade</title>
+    <meta name="description" content="Acesse sua conta no E-Grade">
+    <link href="css/home.css" rel="stylesheet">
 </head>
 <body>
 
-    <button class="btn-menu" id="btn-menu">☰ Menu</button>
-    <ul class="menu" id="menu">
-        <li><a href="/">INICIO</a></li>
-        <li><a href="/register.php">REGISTRO</a></li>
-        <li><a href="/login.php">LOGIN</a></li>
-        <li><a href="/fotos.php">FOTOS</a></li>
-        <?php 
-        if (isset($_COOKIE['auth_token'])) {
-            try {
-                $decoded = JWT::decode($_COOKIE['auth_token'], new Key($key, 'HS256'));
-                $roles = $decoded->roles;
-                if ($roles == 3) {
-                    echo '<li><a href="/admin.php">ADMIN</a></li>';
-                    }
-                } catch (Exception $e) {
-            } 
-        }
-        ?>
-    </ul>
+    <div class="background"></div>
 
-    <form action="login.php" method="GET">
-        <button type="submit" name="deslogar" value="1">Deslogar</button>
-    </form>
+    <div class="login-container">
+        <div class="logo">
+            <div>
+                <h1>E-Grade</h1>
+                <p class="subtitle">Educação Adventista</p>
+            </div>
+        </div>
+
+        <h2>Bem-vindo de volta</h2>
+        <p>Faça login para continuar</p>
+        
+        <form action="/login.php" method="POST">
+            <button type="submit" class="google-btn">Entrar</button>
+
+        </form>
+    </div>
 </body>
 </html>
