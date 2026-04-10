@@ -2,44 +2,40 @@
 require_once '../src/Controllers/login/storeLogin.php';
 require_once '../src/Controllers/login/deslogar.php';
 
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/form.css">
-    <script src="js/script.js" defer></script>
-    
+    <title>E-Grade | Login</title>
+    <link rel="stylesheet" href="./css/form.css">
 </head>
 <body>
 
-    <button class="btn-menu" id="btn-menu">☰ Menu</button>
-    <ul class="menu" id="menu">
-        <li><a href="/home.php">INICIO</a></li>
-        <li><a href="/register.php">REGISTRO</a></li>
-        <li><a href="/login.php">LOGIN</a></li>
-        <li><a href="/fotos.php">FOTOS</a></li>
-        <?php 
-        if (isset($_COOKIE['auth_token'])) {
-            try {
-                $decoded = JWT::decode($_COOKIE['auth_token'], new Key($key, 'HS256'));
-                $roles = $decoded->roles;
-                if ($roles == 3) {
-                    echo '<li><a href="/admin.php">ADMIN</a></li>';
-                    }
-                } catch (Exception $e) {
-            } 
-        }
-        ?>
-    </ul>
+<div class="login-root">
+    <aside class="side-left">
+        <div class="egrade-logo">
+            <span class="egrade-logo__icon">E</span>
+            <span class="egrade-logo__text">Grade</span>
+        </div>
+    </aside>
 
-    <form action="login.php" method="POST">
+    <section class="side-right">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="grid-overlay"></div>
+
+                <div class="brand">
+                    <span class="brand-icon">E</span>
+                    <span class="brand-text">Grade</span>
+                </div>
+
+                <p class="brand-sub">Acesse sua conta institucional</p>
+            </div>
+
+            <form action="login.php" method="POST">
         <fieldset>
             <legend>Entre com seus dados de acesso</legend>
             <label for="email">Email:</label>
@@ -48,6 +44,12 @@ use Firebase\JWT\Key;
             <input type="password" name="password" placeholder="Password" required>
             <input type="submit" value="Login">
         </fieldset>
+        <p class="form-link">Não tem uma conta?<a href="register.php">Registre-se</a>
+    </p>
     </form>
+        </div>
+    </section>
+</div>
+
 </body>
 </html>

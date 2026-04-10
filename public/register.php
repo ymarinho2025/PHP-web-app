@@ -1,44 +1,44 @@
 <?php
 require_once '../src/Controllers/login/storeRegister.php';
+require_once '../src/Controllers/login/process.php';
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/form.css">
-    <script src="js/script.js" defer></script>
-    <script src="js/leter.js" defer></script>
+    <title>E-Grade | Registro</title>
+    <link rel="stylesheet" href="./css/form.css">
+    <script src="./js/leter.js" defer></script>
 </head>
 <body>
 
-    <button class="btn-menu" id="btn-menu">☰ Menu</button>
-    <ul class="menu" id="menu">
-        <li><a href="/home.php">INICIO</a></li>
-        <li><a href="/register.php">REGISTRO</a></li>
-        <li><a href="/login.php">LOGIN</a></li>
-        <li><a href="/fotos.php">FOTOS</a></li>
-        <?php 
-        if (isset($_COOKIE['auth_token'])) {
-            try {
-                $decoded = JWT::decode($_COOKIE['auth_token'], new Key($key, 'HS256'));
-                $roles = $decoded->roles;
-                if ($roles == 3) {
-                    echo '<li><a href="/admin.php">ADMIN</a></li>';
-                    }
-                } catch (Exception $e) {
-            } 
-        }
-        ?>
-    </ul>
+<div class="login-root">
+    <aside class="side-left">
+        <div class="egrade-logo">
+            <span class="egrade-logo__icon">E</span>
+            <span class="egrade-logo__text">Grade</span>
+        </div>
+    </aside>
 
-<form id="registerForm"action="register.php" method="POST">
+    <section class="side-right">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="grid-overlay"></div>
+
+                <div class="brand">
+                    <span class="brand-icon">E</span>
+                    <span class="brand-text">Grade</span>
+                </div>
+
+                <p class="brand-sub">Crie sua conta institucional</p>
+            </div>
+
+            <form id="registerForm"action="register.php" method="POST">
     <fieldset>
         <legend>Registre sua conta</legend>
         <input type="text" id="name" name="name" placeholder="Name" required autofocus>
@@ -46,6 +46,7 @@ use Firebase\JWT\Key;
         <input type="password" id="password" name="password" placeholder="Password" required>
         <input type="submit" value="Register">
     </fieldset>
+    <p class="form-link">Já tem uma conta?<a href="login.php">Entre aqui</a>
 </form>
 
 <script>
@@ -57,6 +58,9 @@ use Firebase\JWT\Key;
     console.log("Formulário não enviado.");
 });
 </script>
+        </div>
+    </section>
+</div>
 
 </body>
 </html>

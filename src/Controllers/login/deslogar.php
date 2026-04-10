@@ -17,4 +17,4 @@ setcookie("auth_token", "", [
     'secure'   => false,
     'samesite' => 'Lax'
 ]);
-}
+} 

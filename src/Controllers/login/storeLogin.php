@@ -45,9 +45,8 @@ function saveUserLoginIp($mysqli, $userId, $ip)
     }
 }
 
-if (isset($_POST['email']) && isset($_POST['password'])) {
-    $email = $_POST['email'];
-    $senha = $_POST['password'];
+    $email = trim($_POST['email'] ?? '');
+    $senha = $_POST['password'] ?? '';
     $hash = hash('sha256', $senha);
 
     $stmt = $mysqli->prepare("SELECT * FROM users WHERE email = ? AND password = ?");
@@ -76,10 +75,6 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
             'secure' => false,
             'samesite' => 'Lax'
         ]);
-
-        header("Location: /home.php");
-        exit;
     } else {
         echo "Email ou senha incorretos.";
-    }
 }

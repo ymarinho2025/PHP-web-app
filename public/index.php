@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - E-Grade</title>
     <meta name="description" content="Acesse sua conta no E-Grade">
-    <link href="css/home.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
 
@@ -19,13 +19,19 @@
             </div>
         </div>
 
-        <h2>Bem-vindo de volta</h2>
-        <p>Faça login para continuar</p>
+        <h2>Seja Bem-vindo!</h2>
+        <p>Clique no botão abaixo para continuar</p>
         
         <form action="/login.php" method="POST">
             <button type="submit" class="google-btn">Entrar</button>
-
         </form>
+
+        <p class="subtitulo">Padrão Adventista. Correção instantânea.</p>
+
+        <div class="google-btn-icon">
+            <img src="img/LogotipoAdventista.png" alt="Logo Adventista">
+        </div>
     </div>
+
 </body>
 </html>
