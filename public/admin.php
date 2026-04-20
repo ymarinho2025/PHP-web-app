@@ -1,5 +1,6 @@
 <?php
 require_once '../src/Controllers/admin/isAdmin.php';
+require_once '../src/Controllers/login/deslogar.php';
 require_once '../src/Controllers/admin/painelAdmin.php';
 require_once '../src/Controllers/admin/delete.php';
 require_once '../src/Controllers/admin/edit.php';
@@ -20,11 +21,12 @@ require_once '../src/Controllers/admin/edit.php';
         <aside class="sidebar">
             <h2>Painel ADM</h2>
             <a href="#" class="active">Usuários</a>
+            <a href="/admin-suporte.php">Suporte</a>
             <a href="/home.php">Menu inicial</a>
 
-            <form action="login.php" method="GET">
-        <button type="submit" name="deslogar" value="1">Deslogar</button>
-    </form>
+            <form action="admin.php" method="GET">
+                <button type="submit" name="deslogar" value="1">Deslogar</button>
+            </form>
         </aside>
 
         <main class="main">

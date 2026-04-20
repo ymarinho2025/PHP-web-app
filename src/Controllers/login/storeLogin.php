@@ -45,9 +45,11 @@ function saveUserLoginIp($mysqli, $userId, $ip)
     }
 }
 
+// Só tenta logar se for POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email'] ?? '');
     $senha = $_POST['password'] ?? '';
-    $hash = hash('sha256', $senha);
+    $hash  = hash('sha256', $senha);
 
     $stmt = $mysqli->prepare("SELECT * FROM users WHERE email = ? AND password = ?");
     $stmt->bind_param("ss", $email, $hash);
@@ -56,25 +58,56 @@ function saveUserLoginIp($mysqli, $userId, $ip)
 
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
-        $ip = getClientIpAddress();
+        $ip   = getClientIpAddress();
         saveUserLoginIp($mysqli, $user['id'], $ip);
 
         $payload = [
-            "iat" => time(),
-            "exp" => time() + 3600,
-            "id" => $user['id'],
+            "iat"   => time(),
+            "exp"   => time() + 3600,
+            "id"    => $user['id'],
             "roles" => $user['roles']
         ];
 
         $jwt = JWT::encode($payload, $key, 'HS256');
 
         setcookie("auth_token", $jwt, [
-            'expires' => time() + 3600,
-            'path' => '/',
+            'expires'  => time() + 3600,
+            'path'     => '/',
             'httponly' => true,
-            'secure' => false,
+            'secure'   => false,
             'samesite' => 'Lax'
         ]);
+
+        // Redireciona via header (mais confiável que JS)
+        header('Location: /home.php');
+        exit();
+
     } else {
-        echo "Email ou senha incorretos.";
+        // Armazena o erro para exibir no formulário
+        $loginErro = "Email ou senha incorretos.";
+    }
+
+} else {
+    // GET sem POST: só redireciona para home se o cookie for válido
+    // (usuário já logado tentando acessar /login.php)
+    $auth_token = $_COOKIE['auth_token'] ?? null;
+
+    if ($auth_token) {
+        try {
+            JWT::decode($auth_token, new Key($key, 'HS256'));
+            // Token válido: manda para home
+            header('Location: /home.php');
+            exit();
+        } catch (Exception $e) {
+            // Token inválido ou expirado: limpa o cookie e deixa acessar o login
+            setcookie("auth_token", "", [
+                'expires'  => time() - 3600,
+                'path'     => '/',
+                'httponly' => true,
+                'secure'   => false,
+                'samesite' => 'Lax'
+            ]);
+            unset($_COOKIE['auth_token']);
+        }
+    }
 }

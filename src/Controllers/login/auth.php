@@ -21,10 +21,20 @@ try {
     $stmtUser->bind_param("i", $userId);
     $stmtUser->execute();
     $result = $stmtUser->get_result();
+    $user = $result->fetch_assoc();
 
-    // echo "Usuário atual: " . htmlspecialchars($result->fetch_assoc()['name'], ENT_QUOTES, 'UTF-8');
+    if (!$user) {
+        throw new Exception("Usuário não encontrado");
+    }
+
+    $userName = $user['name'];
+
+    // Exemplo de uso:
+    // echo "Usuário atual: " . htmlspecialchars($userName, ENT_QUOTES, 'UTF-8');ENT_QUOTES, 'UTF-8');
     
 } catch (Exception $e) {
+    setcookie("auth_token", "", time() - 3600, "/");
+
     echo "<script>window.location.href = '/login.php';</script>";
     exit();
 }

@@ -20,7 +20,7 @@ if (isset($_COOKIE['auth_token'])) {
 
 if (
     isset($_POST['namefotos']) &&
-    isset($_POST['dia']) &&
+//  isset($_POST['dia']) &&
     isset($_POST['mes']) &&
     isset($_POST['ano']) &&
     isset($_POST['upload']) &&
@@ -29,14 +29,14 @@ if (
     $userId !== null
 ) {
     $nome = trim($_POST['namefotos']);
-    $dia = (int) $_POST['dia'];
+//  $dia = (int) $_POST['dia'];
     $mes = (int) $_POST['mes'];
     $ano = (int) $_POST['ano'];
     
     if ($base64Image) {
         // Inserção do novo usuário
-        $stmt = $mysqli->prepare("INSERT INTO midia (nome, dia, mes, ano, imagem, user_id) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("siiisi", $nome, $dia, $mes, $ano, $base64Image, $userId);
+        $stmt = $mysqli->prepare("INSERT INTO midia (nome, mes, ano, imagem, user_id) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("siisi", $nome, $mes, $ano, $base64Image, $userId);
         try {
             if ($stmt->execute()) {
                 echo "Midia salva com sucesso!";

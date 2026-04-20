@@ -29,4 +29,11 @@ $hash = hash('sha256', $senha);
         // echo "Erro ao registrar usuário: " . $stmt->error;
         }
     }
+    $auth_token = $_COOKIE['auth_token'] ?? null;
+
+if ($auth_token) {
+    echo "<script>window.location.href = '/home.php';</script>";
+    exit();
+    }
+
 ?>

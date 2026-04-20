@@ -1,7 +1,5 @@
 <?php
 require_once '../src/Controllers/login/storeLogin.php';
-require_once '../src/Controllers/login/deslogar.php';
-
 ?>
 
 <!doctype html>
@@ -35,18 +33,21 @@ require_once '../src/Controllers/login/deslogar.php';
                 <p class="brand-sub">Acesse sua conta institucional</p>
             </div>
 
+            <?php if (!empty($loginErro)): ?>
+                <p class="form-error"><?= htmlspecialchars($loginErro, ENT_QUOTES, 'UTF-8') ?></p>
+            <?php endif; ?>
+
             <form action="login.php" method="POST">
-        <fieldset>
-            <legend>Entre com seus dados de acesso</legend>
-            <label for="email">Email:</label>
-            <input type="text" name="email" placeholder="Email" required autofocus>
-            <label for="password">Password:</label>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="submit" value="Login">
-        </fieldset>
-        <p class="form-link">Não tem uma conta?<a href="register.php">Registre-se</a>
-    </p>
-    </form>
+                <fieldset>
+                    <legend>Entre com seus dados de acesso</legend>
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" placeholder="Email" required autofocus>
+                    <label for="password">Senha:</label>
+                    <input type="password" name="password" placeholder="Senha" required>
+                    <input type="submit" value="Entrar">
+                </fieldset>
+                <p class="form-link">Não tem uma conta? <a href="register.php">Registre-se</a></p>
+            </form>
         </div>
     </section>
 </div>

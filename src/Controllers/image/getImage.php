@@ -23,18 +23,18 @@ if (isset($_COOKIE['auth_token'])) {
 }
 
 if (
-    isset($_POST['dia']) &&
+//  isset($_POST['dia']) &&
     isset($_POST['mes']) &&
     isset($_POST['ano']) &&
     $userId !== null
 ) {
-    $dia = (int) $_POST['dia'];
+//  $dia = (int) $_POST['dia'];
     $mes = (int) $_POST['mes'];
     $ano = (int) $_POST['ano'];
 
-    $stmt = $mysqli->prepare(" SELECT nome, imagem FROM midia WHERE dia = ? AND mes = ? AND ano = ? AND user_id = ? ORDER BY id DESC");
+    $stmt = $mysqli->prepare(" SELECT nome, imagem FROM midia WHERE mes = ? AND ano = ? AND user_id = ? ORDER BY id DESC");
 
-    $stmt->bind_param("iiii", $dia, $mes, $ano, $userId);
+    $stmt->bind_param("iii", $mes, $ano, $userId);
     $stmt->execute();
 
     $result = $stmt->get_result();
