@@ -78,12 +78,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'samesite' => 'Lax'
         ]);
 
-        // Redireciona via header (mais confiável que JS)
         header('Location: /home.php');
         exit();
 
     } else {
-        // Armazena o erro para exibir no formulário
         $loginErro = "Email ou senha incorretos.";
     }
 
