@@ -1,6 +1,6 @@
 <?php
 $pdo = require_once __DIR__ . '/../db.php';
-require_once __DIR__ . '/login/key.php';
+require_once __DIR__ . '/key.php';
 require_once __DIR__ . '/../../../vendor/autoload.php';
 
 use Firebase\JWT\JWT;
