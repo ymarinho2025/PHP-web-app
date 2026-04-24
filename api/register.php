@@ -1,5 +1,5 @@
 <?php
-require_once '../src/Controllers/login/process.php';
+require_once __DIR__ . '/../src/Controllers/login/process.php';
 ?>
 
 <!doctype html>
@@ -8,8 +8,8 @@ require_once '../src/Controllers/login/process.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Grade | Registro</title>
-    <link rel="stylesheet" href="./css/form.css">
-    <script src="./js/leter.js" defer></script>
+    <link rel="stylesheet" href="/css/form.css">
+    <script src="/js/leter.js" defer></script>
 </head>
 <body>
 

@@ -1,7 +1,7 @@
 <?php
-require_once '../src/Controllers/login/auth.php';
-require_once '../src/Controllers/login/key.php';
-require_once '../vendor/autoload.php';
+require_once __DIR__ . '/../src/Controllers/login/auth.php';
+require_once __DIR__ . '/../src/Controllers/login/key.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
@@ -12,9 +12,9 @@ use Firebase\JWT\Key;
 |--------------------------------------------------------------------------
 */
 ob_start();
-require_once '../src/Controllers/image/base64.php';
-require_once '../src/Controllers/image/storeImage.php';
-require_once '../src/Controllers/image/getImage.php';
+require_once __DIR__ . '/../src/Controllers/image/base64.php';
+require_once __DIR__ . '/../src/Controllers/image/storeImage.php';
+require_once __DIR__ . '/../src/Controllers/image/getImage.php';
 $mensagemBackend = trim(ob_get_clean());
 
 function selected($valorAtual, $valorEsperado) {

@@ -1,6 +1,6 @@
 <?php
-require_once '../src/Controllers/admin/isAdmin.php';
-require_once '../src/Controllers/login/deslogar.php';
+require_once __DIR__ . '/../src/Controllers/admin/isAdmin.php';
+require_once __DIR__ . '/../src/Controllers/login/deslogar.php';
 
 // isAdmin.php valida o administrador e carrega $pdo pelo db.php
 if (!isset($pdo) || !($pdo instanceof PDO)) {
@@ -70,9 +70,9 @@ $mensagens = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administração - Suporte</title>
-    <link rel="stylesheet" href="css/admin/base.css">
-    <link rel="stylesheet" href="css/admin/components.css">
-    <link rel="stylesheet" href="css/admin/responsive.css">
+    <link rel="stylesheet" href="/css/admin/base.css">
+    <link rel="stylesheet" href="/css/admin/components.css">
+    <link rel="stylesheet" href="/css/admin/responsive.css">
 </head>
 <body>
     <div class="container">

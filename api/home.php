@@ -1,7 +1,7 @@
 <?php
-require_once '../vendor/autoload.php';
-require_once '../src/Controllers/login/auth.php';
-require_once '../src/Controllers/login/deslogar.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../src/Controllers/login/auth.php';
+require_once __DIR__ . '/../src/Controllers/login/deslogar.php';
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
@@ -39,7 +39,7 @@ if (!empty($userName)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="./css/estilo.css">
+    <link rel="stylesheet" href="/css/estilo.css">
     <style>
         .logout-form { margin: 0; }
         .admin-badge {
@@ -106,6 +106,6 @@ if (!empty($userName)) {
     });
 })();
 </script>
-<script src="./js/app.js"></script>
+<script src="/js/app.js"></script>
 </body>
 </html>

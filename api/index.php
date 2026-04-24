@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - E-Grade</title>
     <meta name="description" content="Acesse sua conta no E-Grade">
-    <link href="css/index.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
 </head>
 <body>
 

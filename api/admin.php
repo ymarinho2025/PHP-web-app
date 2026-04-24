@@ -1,9 +1,9 @@
 <?php
-require_once '../src/Controllers/admin/isAdmin.php';
-require_once '../src/Controllers/login/deslogar.php';
-require_once '../src/Controllers/admin/painelAdmin.php';
-require_once '../src/Controllers/admin/delete.php';
-require_once '../src/Controllers/admin/edit.php';
+require_once __DIR__ . '/../src/Controllers/admin/isAdmin.php';
+require_once __DIR__ . '/../src/Controllers/login/deslogar.php';
+require_once __DIR__ . '/../src/Controllers/admin/painelAdmin.php';
+require_once __DIR__ . '/../src/Controllers/admin/delete.php';
+require_once __DIR__ . '/../src/Controllers/admin/edit.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -11,10 +11,10 @@ require_once '../src/Controllers/admin/edit.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Administrativo</title>
-    <link rel="stylesheet" href="css/admin/base.css">
-    <link rel="stylesheet" href="css/admin/components.css">
-    <link rel="stylesheet" href="css/admin/responsive.css">
-    <script src="js/admin/admin.js" defer></script>
+    <link rel="stylesheet" href="/css/admin/base.css">
+    <link rel="stylesheet" href="/css/admin/components.css">
+    <link rel="stylesheet" href="/css/admin/responsive.css">
+    <script src="/js/admin/admin.js" defer></script>
 </head>
 <body>
     <div class="container">

@@ -1,8 +1,8 @@
 <?php
-require_once '../src/Controllers/login/auth.php';
-require_once '../src/Controllers/image/base64.php';
-require_once '../src/Controllers/image/storeImage.php';
-require_once '../src/Controllers/image/getImage.php';
+require_once __DIR__ . '/../src/Controllers/login/auth.php';
+require_once __DIR__ . '/../src/Controllers/image/base64.php';
+require_once __DIR__ . '/../src/Controllers/image/storeImage.php';
+require_once __DIR__ . '/../src/Controllers/image/getImage.php';
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
@@ -14,9 +14,9 @@ use Firebase\JWT\Key;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/form.css">
-    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <script src="/js/script.js" defer></script>
 </head>
 <body>
     <button class="btn-menu" id="btn-menu">☰ Menu</button>
