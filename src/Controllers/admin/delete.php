@@ -1,5 +1,5 @@
 <?php
-$pdo = require_once '../src/Controllers/db.php';
+$pdo = require_once __DIR__ . '/../db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
 

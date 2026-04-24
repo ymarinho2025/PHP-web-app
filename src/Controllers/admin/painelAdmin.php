@@ -1,5 +1,5 @@
 <?php
-$pdo = require_once '../src/Controllers/db.php';
+$pdo = require_once __DIR__ . '/../db.php';
 
 $usuarios = [];
 $total_usuarios = 0;
