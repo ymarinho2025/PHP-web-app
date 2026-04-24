@@ -1,5 +1,5 @@
 <?php
-$pdo = require_once '../src/Controllers/db.php';
+$pdo = require '../src/Controllers/db.php';
 require_once '../src/Controllers/login/key.php';
 require_once '../vendor/autoload.php';
 

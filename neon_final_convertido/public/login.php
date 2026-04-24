@@ -1,5 +1,5 @@
 <?php
-require_once '../src/Controllers/login/process.php';
+require_once '../src/Controllers/login/storeLogin.php';
 ?>
 
 <!doctype html>
@@ -7,9 +7,8 @@ require_once '../src/Controllers/login/process.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Grade | Registro</title>
+    <title>E-Grade | Login</title>
     <link rel="stylesheet" href="./css/form.css">
-    <script src="./js/leter.js" defer></script>
 </head>
 <body>
 
@@ -31,22 +30,23 @@ require_once '../src/Controllers/login/process.php';
                     <span class="brand-text">Grade</span>
                 </div>
 
-                <p class="brand-sub">Crie sua conta institucional</p>
+                <p class="brand-sub">Acesse sua conta institucional</p>
             </div>
 
-            <?php if (!empty($mensagem)): ?>
-                <p class="form-error"><?= htmlspecialchars($mensagem, ENT_QUOTES, 'UTF-8') ?></p>
+            <?php if (!empty($loginErro)): ?>
+                <p class="form-error"><?= htmlspecialchars($loginErro, ENT_QUOTES, 'UTF-8') ?></p>
             <?php endif; ?>
 
-            <form id="registerForm" action="register.php" method="POST">
+            <form action="login.php" method="POST">
                 <fieldset>
-                    <legend>Registre sua conta</legend>
-                    <input type="text" id="name" name="name" placeholder="Nome" required autofocus>
-                    <input type="email" id="email" name="email" placeholder="Email" required>
-                    <input type="password" id="password" name="password" placeholder="Senha" required>
-                    <input type="submit" value="Registrar">
+                    <legend>Entre com seus dados de acesso</legend>
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" placeholder="Email" required autofocus>
+                    <label for="password">Senha:</label>
+                    <input type="password" name="password" placeholder="Senha" required>
+                    <input type="submit" value="Entrar">
                 </fieldset>
-                <p class="form-link">Já tem uma conta? <a href="login.php">Entre aqui</a></p>
+                <p class="form-link">Não tem uma conta? <a href="register.php">Registre-se</a></p>
             </form>
         </div>
     </section>

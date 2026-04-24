@@ -1,15 +1,31 @@
 <?php
 
-$host = $_ENV['DB_HOST'] ?? 'localhost';
-$port = (int)($_ENV['DB_PORT'] ?? 3306);
-$db   = $_ENV['DB_NAME'] ?? 'edson';
-$user = $_ENV['DB_USER'] ?? 'root';
-$pass = $_ENV['DB_PASS'] ?? 'wasd';
+$databaseUrl = getenv('DATABASE_URL');
 
-$mysqli = mysqli_connect($host, $user, $pass, $db, $port);
-
-if (!$mysqli) {
-    die("Erro na conexão: " . mysqli_connect_error());
+if (!$databaseUrl) {
+    die("Erro: variável DATABASE_URL não configurada.");
 }
 
-return $mysqli;
+$parsed = parse_url($databaseUrl);
+
+$host = $parsed['host'];
+$port = $parsed['port'] ?? 5432;
+$user = $parsed['user'];
+$pass = $parsed['pass'];
+$db   = ltrim($parsed['path'], '/');
+
+$endpoint = explode('.', $host)[0];
+
+$dsn = "pgsql:host=$host;port=$port;dbname=$db;sslmode=require;options=endpoint=$endpoint";
+
+try {
+    $pdo = new PDO($dsn, $user, $pass, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    ]);
+
+    return $pdo;
+
+} catch (PDOException $e) {
+    die("Erro na conexão PostgreSQL: " . $e->getMessage());
+}
