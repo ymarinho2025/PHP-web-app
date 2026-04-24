@@ -1,5 +1,5 @@
 <?php
-$pdo = require_once __DIR__ . '/../db.php';
+$pdo = require __DIR__ . '/../db.php';
 require_once __DIR__ . '/key.php';
 require_once __DIR__ . '/../../../vendor/autoload.php';
 
